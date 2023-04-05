@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Kommunicate from '@kommunicate/kommunicate-chatbot-plugin';
 
-Kommunicate.init("3f74806a306e060f4731c4986297e3ffc")
+Kommunicate.init("1ca0683316cb07090834bf5f119dcd46b")
 
 ReactDOM.render(
     <App />
