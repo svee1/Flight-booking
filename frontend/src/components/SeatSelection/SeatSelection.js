@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { FaAngleDoubleDown } from "react-icons/fa";
 import './Tab.css'
+import { MySwal } from '../../utils'
 export default function SeatSelection() {
+    
     const [name, setName] = useState([])
     const [arrowDown, setArrowDown] = useState(false)
     const [gender, setGender] = useState([])
@@ -17,7 +19,7 @@ export default function SeatSelection() {
         ["1G", "2G", '3G'],
         ["1H", "2H", '3H'],
         ["1I", "2I", '3I'],
-        ["1J", "2J", '3I'],
+        ["1J", "2J", '3J'],
 
     ];
     const [seatNumber, setSeatnumber] = useState([])
@@ -74,6 +76,12 @@ export default function SeatSelection() {
         setArrowDown(true)
         localStorage.setItem("reservedSeats", JSON.stringify(seatNumber));
         localStorage.setItem("nameData", JSON.stringify(name));
+        MySwal.fire({
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
     }
 
 
@@ -150,4 +158,5 @@ export default function SeatSelection() {
             </div>
         </div>
     )
+    
 }
