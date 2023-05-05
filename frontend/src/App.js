@@ -17,9 +17,9 @@ import './App.css';
 import KommunicateChat from './components/Chat';
 
 function App() {
-  // useEffect(() => {
-  //   localStorage.setItem("nameData", []);
-  // }, [])
+  useEffect(() => {
+    localStorage.setItem("nameData", []);
+  }, [])
   return (
     <div className="App">
       <Router>

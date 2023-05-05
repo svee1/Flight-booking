@@ -10,6 +10,7 @@ import ChangingFeatures from '../ChangingFeatures/ChangingFeatures'
 import CustomerService from '../CustomerService/CustomerService'
 export default function RouteSelection({ history }) {
 
+    console.log("@@@@@@@@@@@@@@@@@@@@@@@@ RouteSelection", history)
     const handleUserIcon = e => {
         e.preventDefault()
         history.push('/profile')

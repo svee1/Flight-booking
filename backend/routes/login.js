@@ -6,22 +6,25 @@ var bcrypt = require("bcrypt");
 
 const router = express.Router();
 
-router.post("/login", async(req, res, next) => {
+router.post("/login", async (req, res, next) => {
     const { email, password } = req.body;
+    console.log("printing data on login", req.body)
     try {
         User.findOne({ email: email }, (err, doc) => {
-            console.log(doc);
-            if (err) {} else {
-                if (!doc) {} else {
-                    bcrypt.compare(password, doc.password, function(error, response) {
-                        console.log(response);
+            console.log("Printin find one", doc);
+            if (err) { } else {
+                if (!doc) { } else {
+                    bcrypt.compare(password, doc.password, function (error, response) {
+                        console.log("Printing password bcrypt.compare ", response);
                         const token = jwt.sign({ doc }, "top_secret");
                         res.status(200).json({ token });
                     });
                 }
             }
         });
-    } catch (error) {}
+    } catch (error) {
+        console.log("printing error", error)
+    }
     // passport.authenticate("login", async(err, user, info) => {
     //     try {
     //         if (err || !user) {

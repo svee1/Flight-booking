@@ -58,12 +58,12 @@ export default class App extends React.Component {
 
     renderNamesOfPassenger = () => {
         let passArray = localStorage.getItem('nameData')
-        if (passArray) {
-            let nameArray = JSON.parse(passArray)
-            return nameArray.map((name, idx) => {
-                return <p key={idx} > {name} </p>
-            })
-        }
+        // if (passArray) {
+        //     let nameArray = JSON.parse(passArray)
+        //     return nameArray.map((name, idx) => {
+        //         return <p key={idx} > {name} </p>
+        //     })
+        // }
     }
 
     renderSeatNumbers = () => {

@@ -5,16 +5,16 @@ import jwt_decode from 'jwt-decode'
 
 import {
     formatCreditCardNumber,
-    formatCVC, 
+    formatCVC,
     formatExpirationDate,
-    formatFormData
+    formatFormData  
 } from './utils'
 import 'react-credit-cards/es/styles-compiled.css'
 
 export default class App extends React.Component {
     state = {
         number: '',
-        name: '', 
+        name: '',
         expiry: '',
         cvc: '',
         issuer: '',
@@ -27,6 +27,7 @@ export default class App extends React.Component {
         const tok = sessionStorage.getItem('authToken')
         const decoded = jwt_decode(tok)
         this.setState({ token: decoded.user })
+        console.log("printing data token ", decoded)
     }
 
     handleCallback = ({ issuer }, isValid) => {
@@ -77,9 +78,11 @@ export default class App extends React.Component {
 
     renderNamesOfPassenger = () => {
         let passArray = localStorage.getItem('nameData')
-        if (passArray) {
+        console.log("printing data passArray", passArray)
+        if (passArray?.length > 0) {
+            console.log("printing data @@@@@@@@@@@@@@@@", passArray)
             let nameArray = JSON.parse(passArray)
-            return nameArray.map((name, idx) => {
+            return nameArray?.map((name, idx) => {
                 return <p key={idx} > {name} </p>
             })
         }
